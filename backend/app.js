@@ -20,7 +20,9 @@ const allowedOrigins = [
   "http://localhost:3000",
   "http://localhost:3001",
   "https://main.d1sj7cd70hlter.amplifyapp.com",
-  "https://expense-tracker-app-three-beryl.vercel.app"
+  "https://expense-tracker-app-three-beryl.vercel.app",
+  "https://fintracker.netlify.app", // ✅ final Netlify domain
+  "https://*.netlify.app" 
   // add more origins as needed
 ];
 

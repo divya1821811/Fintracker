@@ -31,20 +31,18 @@ app.use(express.json());
 app.use(
   cors({
     origin: (origin, callback) => {
-      // Allow requests from the frontend and no origin (e.g., Postman)
       if (
-  !origin ||
-  allowedOrigins.includes(origin) ||
-  origin.endsWith(".netlify.app") // ✅ allow all Netlify subdomains
-) {
-  callback(null, true);
-} else {
-  callback(new Error("Not allowed by CORS"));
-}
-
+        !origin ||
+        allowedOrigins.includes(origin) ||
+        origin.endsWith(".netlify.app")
+      ) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
     },
-    credentials: true, // Allow cookies or other credentials to be sent with the request
-    methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
 app.use(helmet());

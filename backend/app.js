@@ -32,11 +32,16 @@ app.use(
   cors({
     origin: (origin, callback) => {
       // Allow requests from the frontend and no origin (e.g., Postman)
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true); // Allow the request
-      } else {
-        callback(new Error("Not allowed by CORS")); // Block the request from unauthorized origins
-      }
+      if (
+  !origin ||
+  allowedOrigins.includes(origin) ||
+  origin.endsWith(".netlify.app") // ✅ allow all Netlify subdomains
+) {
+  callback(null, true);
+} else {
+  callback(new Error("Not allowed by CORS"));
+}
+
     },
     credentials: true, // Allow cookies or other credentials to be sent with the request
     methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods

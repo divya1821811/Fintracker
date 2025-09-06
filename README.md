@@ -2,7 +2,6 @@
 # 💰 FinLogix - Expense Tracker (MERN)
 
 A full-stack **MERN Expense Tracker Application** that helps users track income and expenses, manage budgets, and visualize their financial data.  
-Deployed with **Frontend on Netlify** and **Backend on Render**.
 
 ---
 
